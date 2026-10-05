@@ -1,7 +1,22 @@
+
 <div class="cajita" >
-    <div class="luz roja"></div>
-    <div class="luz ambar"></div>
-    <div class="luz verde"></div>
+    @if(contador()>=2){
+        <div class="luz roja"></div>
+    }@else{
+        <div class="luz gris"></div>
+    }
+
+    @if(contador()==1){
+        <div class="luz ambar"></div>
+    }@else{
+        <div class="luz gris"></div>
+    }
+    
+    @if(contador()==0){
+        <div class="luz verde"></div>
+    }@else{
+        <div class="luz gris"></div>
+    }
 
 </div> 
 
@@ -10,6 +25,8 @@
 <button (click)="incrementar()">+1</button>
 <button (click)="disminuir()">-1</button>
 <button (click)="reset()">Reset</button>
+
+<p>Los numeros son negativos</p>
 
 <!--
 @if(contador()>=0){
