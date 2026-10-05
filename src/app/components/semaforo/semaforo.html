@@ -1,25 +1,28 @@
+<div class="contenedor-semaforos">
+@for(i of [1,2,3,4,5];track i){
 
-<div class="cajita" >
-    @if(contador()>=2){
-        <div class="luz roja"></div>
-    }@else{
-        <div class="luz gris"></div>
-    }
+    <div class="cajita" >
+        @if(contador()>=2){
+            <div class="luz roja"></div>
+        }@else{
+            <div class="luz gris"></div>
+        }
 
-    @if(contador()==1){
-        <div class="luz ambar"></div>
-    }@else{
-        <div class="luz gris"></div>
-    }
-    
-    @if(contador()==0){
-        <div class="luz verde"></div>
-    }@else{
-        <div class="luz gris"></div>
-    }
+        @if(contador()==1){
+            <div class="luz ambar"></div>
+        }@else{
+            <div class="luz gris"></div>
+        }
+        
+        @if(contador()==0){
+            <div class="luz verde"></div>
+        }@else{
+            <div class="luz gris"></div>
+        }
 
-</div> 
-
+    </div> 
+}
+</div>
 <h1 [style.color]="colorin()">{{contador()}}</h1>
 
 <button (click)="incrementar()">+1</button>

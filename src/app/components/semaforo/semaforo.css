@@ -23,3 +23,9 @@
 .gris{
     background-color: gray;
 }
+.contenedor-semaforos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
