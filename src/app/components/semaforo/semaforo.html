@@ -1,0 +1,20 @@
+<div class="cajita" >
+    <div class="luz roja"></div>
+    <div class="luz ambar"></div>
+    <div class="luz verde"></div>
+
+</div> 
+
+<h1 [style.color]="colorin()">{{contador()}}</h1>
+
+<button (click)="incrementar()">+1</button>
+<button (click)="disminuir()">-1</button>
+<button (click)="reset()">Reset</button>
+
+<!--
+@if(contador()>=0){
+    <p style="color: green;">{{contador()}} </p>
+}@else{
+    <p style="color: red;">{{contador()}}</p>
+}
+-->
