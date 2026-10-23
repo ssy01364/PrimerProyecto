@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
-  imports: [MatButtonModule,MatToolbarModule,MatIconModule],
+  imports: [MatButtonModule,MatIconModule],
   selector: 'app-semaforo',
   styleUrl: './semaforo.css',
   templateUrl: './semaforo.html',

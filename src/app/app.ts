@@ -2,8 +2,12 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Semaforo } from './components/semaforo/semaforo';
 import { Frutas } from './components/frutas/frutas';
+import { NavBar } from './components/nav-bar/nav-bar';
+import { FormularioHalloween } from './components/formulario-halloween/formulario-halloween';
+
+
 @Component({
-  imports: [RouterOutlet, Semaforo, Frutas],
+  imports: [RouterOutlet, Semaforo, Frutas, NavBar,FormularioHalloween],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

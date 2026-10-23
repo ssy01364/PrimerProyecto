@@ -1,0 +1,17 @@
+<h1>Formulario Halloween</h1>>
+
+<form [formGroup]="formularioHalloween" (ngSubmit)="onSubmit()">
+
+  <label for="nombre">Nombre:</label>
+  <input id="nombre" formControlName="nombre">
+  
+  @if(formularioHalloween.controls.nombre.invalid){
+
+  }
+
+  <label for="email">Email:</label>
+  <input id="email" formControlName="email">
+
+  <button type="submit">Enviar</button>
+
+</form>
