@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { email } from '@angular/forms/signals';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -9,13 +8,19 @@ import { email } from '@angular/forms/signals';
   templateUrl: './formulario-halloween.html',
 })
 export class FormularioHalloween {
-  FormularioHalloween = new FormGroup({
-    nombre: new FormControl(''),
-    email: new FormControl(''),
-    edad: new FormControl('')
-});
 
-enviar(){
-  console.log(this.FormularioHalloween.value);
-}
+formularioHalloween = new FormGroup({
+  nombre: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(3)]),
+  email: new FormControl('', [Validators.required, Validators.email]),
+  edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(200)])
+})
+
+
+  enviar(){
+
+    console.log(this.formularioHalloween.value);
+    console.log(this.formularioHalloween.get('email')?.value);
+  }
+
+
 }
