@@ -1,26 +1,44 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NgFor } from '@angular/common';
+import { TarjetaHalloweenComponent } from '../tarjeta-halloween/tarjeta-halloween';
+import { ObjetoHalloween } from '../tarjeta-halloween/objeto-halloween';
 
 @Component({
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgFor, TarjetaHalloweenComponent],
   selector: 'app-formulario-halloween',
   styleUrl: './formulario-halloween.css',
   templateUrl: './formulario-halloween.html',
 })
 export class FormularioHalloween {
+  objetos: ObjetoHalloween[] = [];
 
-formularioHalloween = new FormGroup({
-  nombre: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(3)]),
-  email: new FormControl('', [Validators.required, Validators.email]),
-  edad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(200)])
-})
+  formularioHalloween = new FormGroup({
+    imagen: new FormControl('', [Validators.required]),
+    objeto: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+    descripcion: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    propietario: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+  });
 
+  enviar() {
+    if (this.formularioHalloween.invalid) return;
 
-  enviar(){
+    const valores = this.formularioHalloween.getRawValue();
+    const nuevo: ObjetoHalloween = {
+      imagen: valores.imagen ?? '',
+      objeto: valores.objeto ?? '',
+      descripcion: valores.descripcion ?? '',
+      propietario: valores.propietario ?? '',
+    };
 
-    console.log(this.formularioHalloween.value);
-    console.log(this.formularioHalloween.get('email')?.value);
+    this.objetos.push(nuevo);
+    this.formularioHalloween.reset();
   }
-
-
+  
+  eliminarObjeto(objeto: ObjetoHalloween) {
+  const indice = this.objetos.indexOf(objeto);
+  if (indice !== -1) {
+    this.objetos.splice(indice, 1);
+  }
+}
 }

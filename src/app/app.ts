@@ -7,7 +7,7 @@ import { FormularioHalloween } from './components/formulario-halloween/formulari
 
 
 @Component({
-  imports: [RouterOutlet, Semaforo, Frutas, NavBar,FormularioHalloween],
+  imports: [RouterOutlet, NavBar],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
